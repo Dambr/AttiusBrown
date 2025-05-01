@@ -1,0 +1,65 @@
+\usepackage{rotating}
+\usepackage{ifthen}
+\usepackage[singlelinecheck=false]{caption}
+\usepackage{tempora}
+\usepackage{indentfirst}
+
+\usepackage{etoolbox}
+\ifdef{\additionallapprove}{}{\newcommand{\additionallapprove}{}}
+
+\usepackage{sectsty}
+\sectionfont{\fontsize{12}{15}\selectfont\centering}
+\subsectionfont{\normalfont\fontsize{12}{15}\selectfont}
+\subsubsectionfont{\normalfont\selectfont}
+\usepackage{longtable}
+
+\graphicspath{ {images/} }
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\newcommand*{\No}{\textnumero}
+\hoffset=-5.4mm
+\voffset=-20.4mm
+\marginparwidth=0mm
+\marginparsep=0mm
+\marginparpush=0mm
+\evensidemargin=0mm
+\oddsidemargin=0mm
+\topmargin=0mm
+\headheight=15mm
+\headsep=5mm
+\textwidth=180mm
+\textheight=247mm
+\footskip=10mm
+\setlength{\unitlength}{1mm}
+
+\def\ps@uspdliheadings{
+  \let\@oddfoot\@empty\let\@evenfoot\@empty
+  \def\@oddhead{\\{\rightmark}\\}
+  \def\@evenhead{\\{\leftmark}\\}
+  \let\@mkboth\@gobbletwo
+  \let\sectionmark\@gobble
+  \let\subsectionmark\@gobble
+}
+
+\def\ps@uspdluheadings{
+  \let\@oddhead\@empty\let\@evenhead\@empty
+  \let\@mkboth\@gobbletwo
+  \let\sectionmark\@gobble
+  \let\subsectionmark\@gobble
+}
+
+\def\ps@uspdnormheadings{
+  \let\@oddfoot\@empty\let\@evenfoot\@empty
+  \def\@oddhead{
+  	\vbox{
+		\vbox{\hfil\thepage\hfil}
+		{\vskip 5mm}
+		\vbox{\hfil\rightmark\hfil}
+	}
+  }
+  \def\@evenhead{\\{\leftmark}\\}
+  \let\@mkboth\@gobbletwo
+  \let\sectionmark\@gobble
+  \let\subsectionmark\@gobble
+}
+
+\pagestyle{uspdnormheadings}
